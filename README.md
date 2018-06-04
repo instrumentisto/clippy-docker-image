@@ -1,0 +1,2 @@
+Rust Clippy Docker image
+========================
