@@ -11,4 +11,4 @@ RUN cargo install clippy --version 0.0.207 \
  && rm -rf /usr/local/cargo/registry
 
 
-CMD ["cargo", "clippy"]
+ENTRYPOINT ["cargo", "clippy"]
