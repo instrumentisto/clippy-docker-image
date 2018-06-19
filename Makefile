@@ -12,8 +12,8 @@
 
 
 IMAGE_NAME := instrumentisto/clippy
-VERSION ?= 0.0.207
-TAGS ?= 0.0.207,0.0,0,latest
+VERSION ?= 0.0.208
+TAGS ?= 0.0.208,0.0,0,latest
 
 
 comma := ,
