@@ -6,7 +6,7 @@ MAINTAINER Instrumentisto Team <developer@instrumentisto.com>
 
 # Download and install clippy
 RUN rustup update
-RUN cargo install clippy --version 0.0.209 \
+RUN cargo install clippy --version 0.0.210 \
     \
  # Cleanup unnecessary files
  && rm -rf /usr/local/cargo/registry
