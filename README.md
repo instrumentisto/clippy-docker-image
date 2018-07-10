@@ -33,6 +33,13 @@ docker run --rm -v "$(pwd)":/app -w /app \
 
 
 
+## OpenSSL
+
+As [Rust] crates ecosystem depends on [OpenSSL] quite hard at the moment, this image contains [OpenSSL] libs and sources pre-installed, so you can "just lint" your project without worrying about installing [OpenSSL] libs. 
+
+
+
+
 ## Image versions
 
 
@@ -82,4 +89,5 @@ If you have any problems with or questions about this image, please contact us t
 [92]: https://github.com/instrumentisto/clippy-docker-image/blob/master/LICENSE.md
 
 [clippy lints]: https://rust-lang-nursery.github.io/rust-clippy/master/index.html
+[OpenSSL]: https://www.openssl.org
 [Rust]: https://www.rust-lang.org
