@@ -5,7 +5,6 @@ MAINTAINER Instrumentisto Team <developer@instrumentisto.com>
 
 
 # Download and install clippy.
-RUN rustup update
 RUN cargo install clippy --version 0.0.212 \
     \
  # Cleanup unnecessary files.
@@ -16,6 +15,8 @@ RUN cargo install clippy --version 0.0.212 \
 RUN apt-get update \
  && apt-get install -y --no-install-recommends --no-install-suggests \
             libssl-dev \
+    \
+ # Cleanup unnecessary files.
  && rm -rf /var/lib/apt/lists/*
 
 ENV OPENSSL_LIB_DIR=/usr/lib/x86_64-linux-gnu \
