@@ -109,7 +109,7 @@ test:
 ifeq ($(wildcard node_modules/.bin/bats),)
 	@make deps.bats
 endif
-	IMAGE=$(IMAGE_NAME):$(VERSION) node_modules/.bin/bats test/suite.bats
+	IMAGE=$(IMAGE_NAME):$(VERSION) node_modules/.bin/bats tests/suite.bats
 
 
 

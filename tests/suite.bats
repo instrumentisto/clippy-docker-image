@@ -33,3 +33,9 @@
     "cargo clippy --version | grep -Fx '$expected'"
   [ "$status" -eq 0 ]
 }
+
+@test "clippy lints ok" {
+  run docker run --rm -v "$(pwd)/tests/app":/app -w /app $IMAGE -- \
+    -Dclippy -Wclippy_pedantic
+  [ "$status" -eq 0 ]
+}
