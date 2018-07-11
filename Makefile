@@ -100,32 +100,28 @@ post-push-hook:
 # Run Bats tests for Docker image.
 #
 # Documentation of Bats:
-#	https://github.com/sstephenson/bats
+#	https://github.com/bats-core/bats-core
 #
 # Usage:
 #	make test [VERSION=<image-version>]
 
-test: deps.bats
-	IMAGE=$(IMAGE_NAME):$(VERSION) test/bats/bats test/suite.bats
+test:
+ifeq ($(wildcard node_modules/.bin/bats),)
+	@make deps.bats
+endif
+	IMAGE=$(IMAGE_NAME):$(VERSION) node_modules/.bin/bats test/suite.bats
 
 
 
-# Resolve project dependencies for running tests.
+# Resolve project dependencies for running tests with Yarn.
 #
 # Usage:
-#	make deps.bats [BATS_VER=<bats-version>]
-
-BATS_VER ?= 1.0.2
+#	make deps.bats
 
 deps.bats:
-ifeq ($(wildcard test/bats),)
-	@mkdir -p test/bats/vendor/
-	curl -fL -o test/bats/vendor/bats.tar.gz \
-		https://github.com/bats-core/bats-core/archive/v$(BATS_VER).tar.gz
-	tar -xzf test/bats/vendor/bats.tar.gz -C test/bats/vendor/
-	@rm -f test/bats/vendor/bats.tar.gz
-	ln -s "$(PWD)"/test/bats/vendor/bats-core-$(BATS_VER)/bin/* test/bats/
-endif
+	docker run --rm -v "$(PWD)":/app -w /app \
+		node:alpine \
+			yarn install --non-interactive --no-progress
 
 
 
