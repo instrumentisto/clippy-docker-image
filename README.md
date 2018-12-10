@@ -6,6 +6,15 @@ clippy (Rust linter) Docker image
 
 
 
+## Status
+
+__PROJECT IS CLOSED AND ARCHIVED. NO MAINTAINING WILL BE CONTINUED.__
+
+Use `rustup add component clippy` instead.
+
+
+
+
 ## What is clippy?
 
 clippy is a [collection of lints][clippy lints] to catch common mistakes and improve your [Rust] code.
